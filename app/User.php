@@ -27,9 +27,6 @@ class User extends Authenticatable
                             'password',
                             'remember_token',
                         ];
-    public function movimientos(){
-        return $this->hasMany('App\Movimiento');
-    }
 
     public function cursos(){
         return $this->hasMany('App\Curso');
