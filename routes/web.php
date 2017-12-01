@@ -20,16 +20,12 @@ Route::group(['middleware' => 'auth'], function(){
 	Route::get('/pnew', 'UserController@getForm');
 	Route::post('/newp', 'UserController@password');
 	Route::get('/home', 'HomeController@index')->name('home');
-	Route::resource('/proveedor', 'ProveedorController');
-	Route::resource('/articulo', 'ArticuloController');
-	Route::resource('/pcliente', 'PClienteController');
-	Route::resource('/hcliente', 'HClienteController');
-	Route::resource('/salida', 'SalidaController');
-	Route::resource('/kardexout', 'RegSalidaController');
-	Route::resource('/kardexin', 'RegEntradaController');
-	Route::resource('/lkardex', 'ListarController');
-	Route::resource('/reporteh', 'ReporteHController');
-	Route::resource('/reporteph', 'ReportePHController');
-
+	Route::resource('/tutor', 'TutorController');
+	Route::resource('/estudiante', 'EstudianteController');
+	Route::resource('/docente', 'DocenteController');
 	Route::resource('/curso', 'CursoController');
+	Route::resource('/materia', 'MateriaController');
+	Route::resource('/inscripcion', 'InscripcionController');
+	Route::resource('/calificacion', 'CalificacionController');
+	Route::resource('/cursoMateria', 'CursomateriaController');
 });

@@ -80,24 +80,24 @@
                                 <span class="line-height-1 smaller-90"> Vistas </span>
                             </span>
                             <span class="btn btn-app btn-sm btn-yellow no-hover">
-                                <span class="line-height-1 bigger-170"> Aux</span>
+                                <span class="line-height-1 bigger-170"> ADM</span>
                                 <br />
-                                <span class="line-height-1 smaller-90"> Almacen </span>
+                                <span class="line-height-1 smaller-90"> Admin </span>
                             </span>
                             <span class="btn btn-app btn-sm btn-pink no-hover">
-                                <span class="line-height-1 bigger-170"> Aux </span>
+                                <span class="line-height-1 bigger-170"> DIR </span>
                                 <br />
-                                <span class="line-height-1 smaller-90"> Ventas </span>
+                                <span class="line-height-1 smaller-90"> Director </span>
                             </span>
                             <span class="btn btn-app btn-sm btn-primary no-hover">
-                                <span class="line-height-1 bigger-170"> Ger. </span>
+                                <span class="line-height-1 bigger-170"> PROF </span>
                                 <br />
-                                <span class="line-height-1 smaller-90"> General</span>
+                                <span class="line-height-1 smaller-90"> Profesor</span>
                             </span>
                             <span class="btn btn-app btn-sm btn-success no-hover">
-                                <span class="line-height-1 bigger-170"> Adm </span>
+                                <span class="line-height-1 bigger-170"> SECR </span>
                                 <br />
-                                <span class="line-height-1 smaller-90"> Sistemas </span>
+                                <span class="line-height-1 smaller-90"> Secretaria </span>
                             </span>
                         </div>
                         <div class="space-12"></div>
