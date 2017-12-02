@@ -2,83 +2,67 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\support\Facades\Auth;
 use Illuminate\Http\Request;
+use App\Materia;
+use Toastr;
+use Carbon\Carbon;
 
 class MateriaController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function __construct(){
+        Carbon::setLocale('es');
+    }
+
     public function index()
     {
-        //
+        $materia = Materia::orderBy('created_at')->get();
+        return view('admin.materia.index')->with('materia', $materia);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        return view('admin.materia.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        try{
+            $materia = new Materia($request->all());
+            $materia->iduregistra = Auth::user()->id;
+            $materia->iduactualiza = Auth::user()->id;
+            $materia->save();
+            Toastr::success('Los datos se registraron de manera correcta','Registro');
+        }catch(\Exception $ex){
+            Toastr::error('Ocurrio un error: '.$ex->getMessage(),'Error');
+        }
+        return redirect()->route('materia.index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
-        //
+        try{
+            $materia = Materia::find($id);
+            Toastr::warning('Usted va modificar datos','Modificar');
+            return view('admin.materia.edit')
+                    ->with('materia', $materia);
+        }catch(\Exception $ex){
+            Toastr::error('No se puede realizar la modificación','Error');
+            return redirect()->route('materia.index');
+        }
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        try{
+            $materia = Materia::find($id);
+            $materia->fill($request->all());
+            $materia->iduactualiza = Auth::user()->id;
+            $materia->update();
+            Toastr::success('Los datos se actualizaron de manera correcta','Actualizado');
+        }catch(\Exception $ex){
+            Toastr::error('Ocurrio un error: '.$ex->getMessage(),'Error');
+        }
+        return redirect()->route('materia.index');
     }
 }
