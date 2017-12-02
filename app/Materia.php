@@ -20,4 +20,8 @@ class Materia extends Model
     public function userActualiza(){
     	return $this->belongsTo('App\User','iduactualiza','id');
     }
+
+    public function cursomaterias(){
+        return $this->hasMany('App\Cursomateria');
+    }
 }

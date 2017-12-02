@@ -35,4 +35,20 @@ class User extends Authenticatable
     public function materias(){
         return $this->hasMany('App\Materia');
     }
+
+    public function docentes(){
+        return $this->hasMany('App\Docente');
+    }
+
+    public function estudiantes(){
+        return $this->hasMany('App\Estudiante');
+    }
+
+    public function calificaciones(){
+        return $this->hasMany('App\Calificacion');
+    }
+    
+    public function cursomaterias(){
+        return $this->hasMany('App\Cursomateria');
+    }
 }

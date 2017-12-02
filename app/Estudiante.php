@@ -34,4 +34,20 @@ class Estudiante extends Model
     public function tutores(){
         return $this->belongsTo('App\Tutor','idtutor','id');
     }
+
+    public function calificaciones(){
+        return $this->hasMany('App\Calificacion');
+    }
+
+    public function inscripciones(){
+        return $this->hasMany('App\Inscripcion');
+    }
+
+    public function userRegistra(){
+        return $this->belongsTo('App\User','iduregistra','id');
+    }
+
+    public function userActualiza(){
+        return $this->belongsTo('App\User','iduactualiza','id');
+    }
 }

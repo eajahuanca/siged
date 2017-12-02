@@ -20,4 +20,12 @@ class Curso extends Model
     public function materias(){
     	return $this->hasMany('App\Materia');
     }
+
+    public function inscripciones(){
+        return $this->hasMany('App\Inscripcion');
+    }
+
+    public function cursomaterias(){
+        return $this->hasMany('App\Cursomateria');
+    }
 }
